@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <td>Id</td>
+    <td style="background: lightgrey">Word</td>
+    <td>Definitions</td>
+    <td style="background: lightgrey">Familiarity</td>
+    <td>Actions</td>
+  </tr>
+  <tr>
+    <td><%= @word.id %></td>
+    <td style="background: lightgrey"><%= @word.word %></td>
+    <td><%= @word.definitions %></td>
+    <td style="background: lightgrey"><%= @word.known %></td>
+    <td>
+      <%= link_to 'Edit', edit_word_path(@word) %><br />
+      <%= link_to 'Destroy', @word, :confirm => 'Are you sure?', :method => :delete %><br />
+      <%= link_to 'Back', words_path %>
+    </td>
+  </tr>
+</table>

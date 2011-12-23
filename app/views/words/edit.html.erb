@@ -1,0 +1,38 @@
+<h1>Editing word</h1>
+
+<%= error_messages_for :word %>
+
+<% form_for(@word) do |f| %>
+  <table>
+    <tr>
+      <td><label>Word</label></td>
+      <td><%= f.text_field :word %></td>
+    </tr>
+    <tr>
+      <td><label>Familiarity<br />(0 to 2 - highest)</label></td>
+      <td><%= f.text_field :known %></td>
+    </tr>
+    <tr>
+      <td><label>Definition 1</label></td>
+      <td><%= f.text_field :definition1 %></td>
+    </tr>
+    <tr>
+      <td><label>Definition 2</label></td>
+      <td><%= f.text_field :definition2 %></td>
+    </tr>
+    <tr>
+      <td><label>Definition 3</label></td>
+      <td><%= f.text_field :definition3 %></td>
+    </tr>
+    <tr>
+      <td><label>Definition 4</label></td>
+      <td><%= f.text_field :definition4 %></td>
+    </tr>
+  </table>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<p><%= link_to 'Show', @word %></p>
+<p><%= link_to 'Back', words_path %></p>

@@ -1,0 +1,30 @@
+<tbody id="word_table">
+  <tr style="display:none;">
+    <td colspan="6">
+      <pre>
+        debug<br />
+
+      </pre>
+    </td>
+  </tr>
+  <% for word in @words %>
+    <tr class="util" style="background:<%= cycle("lightgrey", "white") %>">
+      <td>
+        <%= time_ago_in_words word.created_at %><br />
+        ago
+      </td>
+      <td>
+        <%= time_ago_in_words word.updated_at %><br />
+        ago
+      </td>
+      <td class="word"><%= link_to word.word, edit_word_path(word) %></td>
+      <td class="definition">
+        <p class="word_definition" id="word_<%= word.id %>"><%= word.definitions %></p>
+      </td>
+      <td>
+        <%= link_to_remote 'Display', :url => words_toggle_url(word.id), :html => { :class => 'word_toggle', :id => "word_toggle_#{word.id}" } %>
+      </td>
+      <td><%= word.known %></td>
+    </tr>
+  <% end %>
+</tbody>

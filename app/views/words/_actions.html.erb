@@ -1,0 +1,10 @@
+<h4><%= link_to_function '[search]', "$('search').toggle()"%> <%= link_to_function '[language]', "$('language').toggle()"%> <%= link_to '[new]', new_word_path %></p></h4>
+  <% remote_form_for :word, :url => search_path_url, :html => { :style => 'display:none;', :id => 'search' } do |f| %>
+    <label>Familiarity less than: </label><%= f.select :known, { 3 => 3, 2 => 2, 1 => 1 } %>
+    <label>Word begins with: </label><%= f.select :word, @display_alpha_hash %>
+    <%= submit_tag 'search' %>
+  <% end %>
+  <% remote_form_for :language, :url => language_path_url, :html => { :style => 'display:none;', :id => 'language' } do |f| %>
+    <label>Select language: </label><%= f.select :id, Language.find(:all).collect {|p| [ p.language, p.id ] } %>
+    <%= submit_tag 'change' %>
+  <% end %>

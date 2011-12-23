@@ -1,0 +1,20 @@
+<h1>Listing Vocabulary</h1>
+  <%= render :partial => 'actions' %>
+<table>
+  <thead>
+  <tr class="util">
+    <td class="date"><%= link_to_remote 'Created', :url => words_order_url('created_at') %></td>
+    <td class="date"><%= link_to_remote 'Modified', :url => words_order_url('updated_at') %></td>    
+    <td class="word"><%= link_to_remote 'Word', :url => words_order_url('word') %></td>
+    <td><%= link_to_remote 'Definitions', :url => words_order_url('definition1') %></td>
+    <td><%= link_to_remote 'Toggle', :url => words_toggle_url(0) %></td>
+    <td><%= link_to_remote 'Known', :url => words_order_url('known') %></td>
+  </tr>
+  </thead>
+  
+  <%= render :partial => 'word_table' %>
+</table>
+
+<br />
+
+<p class="footer"><%= render :partial => 'actions' %></p>

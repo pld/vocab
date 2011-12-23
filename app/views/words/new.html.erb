@@ -1,0 +1,45 @@
+<h1>New word</h1>
+
+<%= error_messages_for :word %>
+
+<% form_for(@word) do |f| %>
+  <table>
+    <tr>
+      <td><label>Language</label></td>
+      <td><%= f.select :language_id, Language.find(:all).collect {|p| [ p.language, p.id ] } %></td>
+    </tr>
+    <tr>
+      <td><label>Word</label></td>
+      <td><%= f.text_field :word %></td>
+    </tr>
+    <tr>
+      <td><label>Familiarity<br />(0 to 2 - highest)</label></td>
+      <td><%= f.text_field :known %></td>
+    </tr>
+    <tr>
+      <td><label>Priority<br />(0 to 2 - highest)</label></td>
+      <td><%= f.text_field :priority %></td>
+    </tr>
+    <tr>
+      <td><label>Definition 1</label></td>
+      <td><%= f.text_field :definition1 %></td>
+    </tr>
+    <tr>
+      <td><label>Definition 2</label></td>
+      <td><%= f.text_field :definition2 %></td>
+    </tr>
+    <tr>
+      <td><label>Definition 3</label></td>
+      <td><%= f.text_field :definition3 %></td>
+    </tr>
+    <tr>
+      <td><label>Definition 4</label></td>
+      <td><%= f.text_field :definition4 %></td>
+    </tr>
+  </table>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', words_path %>
