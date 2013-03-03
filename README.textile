@@ -1,6 +1,6 @@
 h1. vocab
 
-Ruby on Rails app for storing and tracking voabulary.
+Ruby on Rails app for storing and tracking vocabulary words.
 
 h2. Ownership
 
